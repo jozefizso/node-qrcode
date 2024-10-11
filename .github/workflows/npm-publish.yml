@@ -29,13 +29,11 @@ jobs:
     - run: npm run build
 
     - name: npm pack
-      run: |
-        mkdir dist
-        npm pack --pack-desination dist
+      run: npm pack
 
     - name: upload artifact
       uses: actions/upload-artifact@v4
       with:
-          name: qrcode
-          path: dist/*.tgz
+          name: qrcode_node_${{ matrix.node }}
+          path: *.tgz
           compression-level: 0
