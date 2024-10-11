@@ -1,5 +1,5 @@
-import babel from 'rollup-plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import babel from '@rollup/plugin-babel'
+import terser from '@rollup/plugin-terser'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 
@@ -14,6 +14,6 @@ export default [{
   plugins: [commonjs(), resolve(), babel(babelConfig), terser()]
 }, {
   input: 'helper/to-sjis-browser.js',
-  output: { file: 'build/qrcode.tosjis.js', format: 'iife', exports: 'none' },
+  output: { file: 'build/qrcode.tosjis.js', format: 'iife', exports: 'named' },
   plugins: [commonjs(), resolve(), babel(babelConfig), terser()]
 }]
